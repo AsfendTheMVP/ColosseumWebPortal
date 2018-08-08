@@ -1,0 +1,302 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container">
+    <h2>Colosseum API</h2>
+    <p><strong>Note:</strong> The <strong>Colosseum API</strong> is a RESTful web service to obtain movie information, all content and images on the site are contributed and maintained by our users</p>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Now Playing Movies</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <h6 style="color: #3B5998">Endpoint Definition</h6>
+                    <pre><span style="color:white;font-size: 25px;background-color: green"> GET </span><span>    http://colosseum.somee.com/api/NowPlayingMovies</span></pre>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 style="color: #3B5998">Response Body</h6>
+                            <span>
+                                <pre class="code">
+[  
+   {
+        "MovieId": 7,
+        "MovieName": "Antman and the wasp",
+        "Cast": "Andrew",
+        "Director": "Perttina Jackson",
+        "Description": "Good movies",
+        "Language": "English",
+        "Duration": "140 minutes",
+        "PlayingDate": "2018-07-06T00:00:00",
+        "ShowTime1": "2018-06-29T06:29:00",
+        "ShowTime2": "2018-06-29T11:29:00",
+        "ShowTime3": "2018-06-29T02:29:00",
+        "TicketPrice": "50",
+        "Rating": 8.1,
+        "RatedLevel": "pg13",
+        "Genre": "Action , Super Hero",
+        "TrailorLink": "https://www.youtube.com/watch?v=UUkn-enk2RU",
+        "Logo": "~/Content/NowPlayingMovies/3.png",
+        "LogoFile": null
+    }
+]
+</pre>
+                            </span>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 style="color: #3B5998">Request Example</h6>
+                            <pre class="code">
+<div class="code-snippet"><span class="hljs-comment">// These code snippets are for C#</span>
+<span>
+var client = new HttpClient();
+var requestMessage = new HttpRequestMessage(HttpMethod.Get, "http://colosseum.somee.com/api/NowPlayingMovies");
+requestMessage.Headers.Add("ApiKey", "Your Api Key...");
+var responseMessage = await client.SendAsync(requestMessage);
+</span>
+</div>
+</pre>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Up Coming Movies</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h6 style="color: #3B5998">Endpoint Definition</h6>
+                    <pre><span style="color:white;font-size: 25px;background-color: green"> GET </span><span>    http://colosseum.somee.com/api/UpComingMovies</span></pre>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 style="color: #3B5998">Response Body</h6>
+                            <span>
+                                <pre class="code">
+[  
+    {
+        "MovieId": 1,
+        "MovieName": "Iron Man",
+        "Cast": "Robert Downy Jr.",
+        "Director": "Asfend",
+        "Description": "Well movie",
+        "Language": "English",
+        "ReleaseDate": "2018-06-29T00:00:00",
+        "Genre": "Action , Super Hero",
+        "TrailorLink": "https://www.youtube.com/watch?v=8hYlB38asDY",
+        "Logo": "~/Content/UpComingMovies/3.png",
+        "LogoFile": null
+    }
+]
+</pre>
+                            </span>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 style="color: #3B5998">Request Example</h6>
+                            <pre class="code">
+<div class="code-snippet"><span class="hljs-comment">// These code snippets are for C#</span>
+<span>
+var client = new HttpClient();
+var requestMessage = new HttpRequestMessage(HttpMethod.Get, "http://colosseum.somee.com/api/UpcomingMovies");
+requestMessage.Headers.Add("ApiKey", "Your Api Key...");
+var responseMessage = await client.SendAsync(requestMessage);
+</span>
+</div>
+</pre>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Latest Movies</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h6 style="color: #3B5998">Endpoint Definition</h6>
+                    <pre><span style="color:white;font-size: 25px;background-color: green"> GET </span><span>    http://colosseum.somee.com/api/LatestMovies</span></pre>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 style="color: #3B5998">Response Body</h6>
+                            <span>
+                                <pre class="code">
+[  
+     {
+        "MovieId": 1,
+        "MovieName": "nmmb",
+        "Cast": "kjhkh",
+        "Director": "khhh",
+        "Description": "khkhkjhj",
+        "Language": "hkhhhh",
+        "ReleaseDate": "2018-06-30T00:00:00",
+        "Rating": 6,
+        "Genre": "hhhh",
+        "TrailorLink": "jjjjj",
+        "Logo": "~/Content/LatestMovies/4.png",
+        "LogoFile": null
+    },
+]
+</pre>
+                            </span>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 style="color: #3B5998">Request Example</h6>
+                            <pre class="code">
+<div class="code-snippet">
+<span class="hljs-comment">// These code snippets are for C#</span>
+<span>
+var client = new HttpClient();
+var requestMessage = new HttpRequestMessage(HttpMethod.Get, "http://colosseum.somee.com/api/LatestMovies");
+requestMessage.Headers.Add("ApiKey", "Your Api Key...");
+var responseMessage = await client.SendAsync(requestMessage);
+</span>
+</div>
+</pre>
+ </div>
+ </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Book Ticket</a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h6 style="color: #3B5998">Endpoint Definition</h6>
+                    <pre><span style="color:white;font-size: 25px;background-color: green"> POST </span><span>    http://colosseum.somee.com/api/Orders</span></pre>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 style="color: #3B5998">Object Example</h6>
+                            <span>
+                                <pre class="code">
+[  
+   {
+	"MovieName":"Mission Impossible",
+	"CustomerName":"Andrew",
+	"BookingDate":"02-10-2018",
+	"Qty":"2",
+	"Phone":"001256985142",
+	"Email":"andrewmarcelo@gmail.com",
+	"TotalPayment":"250"
+  }
+]
+</pre>
+                            </span>
+                            
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h6 style="color: #3B5998">Request Example</h6>
+                                  
+                                    <pre class="code">
+<div class="code-snippet">
+<span class="hljs-comment">// These code snippets are for C#</span>
+<span>
+var client = new HttpClient();
+var json = JsonConvert.SerializeObject(BookTicket Object);
+var content = new StringContent(json, Encoding.UTF8, "application/json");
+content.Headers.Add("ApiKey", "Your Api Key...");
+var response = await client.PostAsync("http://colosseum.somee.com/api/Orders", content);
+</span>
+</div>
+</pre>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 style="color: #3B5998">All Fields</h6>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Field Name</th>
+                                        <th>Data Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Id</td>
+                                        <td>int</td>
+                                        <td>A unique identifier and auto incremented</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MovieName</td>
+                                        <td>string</td>
+                                        <td>A brief description of movie name</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Customer Name</td>
+                                        <td>string</td>
+                                        <td>Name of the customer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Booking Date</td>
+                                        <td>string</td>
+                                        <td>Date of ticket booking</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Qty</td>
+                                        <td>string</td>
+                                        <td>Ticket Quantity</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>string</td>
+                                        <td>Customer Phone Number</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>string</td>
+                                        <td>Customer Email</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TotalPayment</td>
+                                        <td>string</td>
+                                        <td>Payment of tickets</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+
+
+                    </div>
+                  
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

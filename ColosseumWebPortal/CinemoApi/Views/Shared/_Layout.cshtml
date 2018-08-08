@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Site information -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BigShow - Movie / Film / Cinema Template</title>
+    <meta name="description" content="Bigshow is a template to jump start campaigning your various kind of movie or tv show">
+    
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/css/owl.transitions.css">
+    <link rel="stylesheet" href="~/Content/css/magnific-popup.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/Images/template/favicon.png">
+    <link rel="apple-touch-icon" href="~/Images/template/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Images/template/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Images/template/icon-114x114.png">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/html5shiv.min.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="lds-css ng-scope">
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+    <!-- Top Header -->
+
+    <header class="topbar text-white" id="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-8">
+                    <p class="topbar-intro">Enjoy your favourite movie, TV show &amp; video in a single subscription at $60</p>
+                </div>
+                @Html.Partial("_LoginPartial")
+            </div>
+
+        </div>
+    </header>
+    <!-- Top Header End -->
+    <!-- Main Header -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("Administrator"))
+        {
+            <nav class="navbar navbar-default">
+                <div class="container">
+
+                    <div class="collapse navbar-collapse" id="main-nav-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Order Details", "Index", "OrderView")</li>
+                            <li>@Html.ActionLink("Now Playing", "Index", "NowPlaying")</li>
+                            <li>@Html.ActionLink("Up Coming Movies", "Index", "UpComing")</li>
+                            <li>@Html.ActionLink("Latest Movies", "Index", "Latests")</li>
+                            <li>@Html.ActionLink("Movies For Slider", "Index", "Slider")</li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        }
+
+    }
+
+    <!-- Main Header End -->
+    @RenderBody()
+
+
+    <!-- Script -->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/owl.carousel.js"></script>
+    <script src="~/Content/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Content/js/jquery.ajaxchimp.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmiJjq5DIg_K9fv6RE72OY__p9jz0YTMI"></script>
+    <script src="~/Content/js/map.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

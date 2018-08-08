@@ -1,0 +1,84 @@
+﻿@model IEnumerable<CinemoApi.Models.NowPlayingMovies>
+
+@{
+    ViewBag.Title = "Now Playing Movies";
+}
+
+<h2>Now Playing Movies</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MovieName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowTime1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowTime2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowTime3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RatedLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Logo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MovieName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowTime1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowTime2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowTime3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TicketPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatedLevel)
+        </td>
+        <td>
+            @if (!string.IsNullOrEmpty(item.Logo))
+            {
+                <img src="@Url.Content(item.Logo)" alt="Image" style="width:100px;height:150px;max-width: 100%; height: auto;" />
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MovieId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MovieId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MovieId })
+        </td>
+    </tr>
+}
+
+</table>

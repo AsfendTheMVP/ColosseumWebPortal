@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CinemoApi.Models.ApiKey>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New Api Key", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KeyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KeyString)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyString)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
